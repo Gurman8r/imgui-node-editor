@@ -216,129 +216,129 @@ struct EditorContext;
 
 
 //------------------------------------------------------------------------------
-void SetCurrentEditor(EditorContext* ctx);
-EditorContext* GetCurrentEditor();
-EditorContext* CreateEditor(const Config* config = nullptr);
-void DestroyEditor(EditorContext* ctx);
+IMGUI_API void SetCurrentEditor(EditorContext* ctx);
+IMGUI_API EditorContext* GetCurrentEditor();
+IMGUI_API EditorContext* CreateEditor(const Config* config = nullptr);
+IMGUI_API void DestroyEditor(EditorContext* ctx);
 
-Style& GetStyle();
-const char* GetStyleColorName(StyleColor colorIndex);
+IMGUI_API Style& GetStyle();
+IMGUI_API const char* GetStyleColorName(StyleColor colorIndex);
 
-void PushStyleColor(StyleColor colorIndex, const ImVec4& color);
-void PopStyleColor(int count = 1);
+IMGUI_API void PushStyleColor(StyleColor colorIndex, const ImVec4& color);
+IMGUI_API void PopStyleColor(int count = 1);
 
-void PushStyleVar(StyleVar varIndex, float value);
-void PushStyleVar(StyleVar varIndex, const ImVec2& value);
-void PushStyleVar(StyleVar varIndex, const ImVec4& value);
-void PopStyleVar(int count = 1);
+IMGUI_API void PushStyleVar(StyleVar varIndex, float value);
+IMGUI_API void PushStyleVar(StyleVar varIndex, const ImVec2& value);
+IMGUI_API void PushStyleVar(StyleVar varIndex, const ImVec4& value);
+IMGUI_API void PopStyleVar(int count = 1);
 
-void Begin(const char* id, const ImVec2& size = ImVec2(0, 0));
-void End();
+IMGUI_API void Begin(const char* id, const ImVec2& size = ImVec2(0, 0));
+IMGUI_API void End();
 
-void BeginNode(NodeId id);
-void BeginPin(PinId id, PinKind kind);
-void PinRect(const ImVec2& a, const ImVec2& b);
-void PinPivotRect(const ImVec2& a, const ImVec2& b);
-void PinPivotSize(const ImVec2& size);
-void PinPivotScale(const ImVec2& scale);
-void PinPivotAlignment(const ImVec2& alignment);
-void EndPin();
-void Group(const ImVec2& size);
-void EndNode();
+IMGUI_API void BeginNode(NodeId id);
+IMGUI_API void BeginPin(PinId id, PinKind kind);
+IMGUI_API void PinRect(const ImVec2& a, const ImVec2& b);
+IMGUI_API void PinPivotRect(const ImVec2& a, const ImVec2& b);
+IMGUI_API void PinPivotSize(const ImVec2& size);
+IMGUI_API void PinPivotScale(const ImVec2& scale);
+IMGUI_API void PinPivotAlignment(const ImVec2& alignment);
+IMGUI_API void EndPin();
+IMGUI_API void Group(const ImVec2& size);
+IMGUI_API void EndNode();
 
-bool BeginGroupHint(NodeId nodeId);
-ImVec2 GetGroupMin();
-ImVec2 GetGroupMax();
-ImDrawList* GetHintForegroundDrawList();
-ImDrawList* GetHintBackgroundDrawList();
-void EndGroupHint();
+IMGUI_API bool BeginGroupHint(NodeId nodeId);
+IMGUI_API ImVec2 GetGroupMin();
+IMGUI_API ImVec2 GetGroupMax();
+IMGUI_API ImDrawList* GetHintForegroundDrawList();
+IMGUI_API ImDrawList* GetHintBackgroundDrawList();
+IMGUI_API void EndGroupHint();
 
 // TODO: Add a way to manage node background channels
-ImDrawList* GetNodeBackgroundDrawList(NodeId nodeId);
+IMGUI_API ImDrawList* GetNodeBackgroundDrawList(NodeId nodeId);
 
-bool Link(LinkId id, PinId startPinId, PinId endPinId, const ImVec4& color = ImVec4(1, 1, 1, 1), float thickness = 1.0f);
+IMGUI_API bool Link(LinkId id, PinId startPinId, PinId endPinId, const ImVec4& color = ImVec4(1, 1, 1, 1), float thickness = 1.0f);
 
-void Flow(LinkId linkId);
+IMGUI_API void Flow(LinkId linkId);
 
-bool BeginCreate(const ImVec4& color = ImVec4(1, 1, 1, 1), float thickness = 1.0f);
-bool QueryNewLink(PinId* startId, PinId* endId);
-bool QueryNewLink(PinId* startId, PinId* endId, const ImVec4& color, float thickness = 1.0f);
-bool QueryNewNode(PinId* pinId);
-bool QueryNewNode(PinId* pinId, const ImVec4& color, float thickness = 1.0f);
-bool AcceptNewItem();
-bool AcceptNewItem(const ImVec4& color, float thickness = 1.0f);
-void RejectNewItem();
-void RejectNewItem(const ImVec4& color, float thickness = 1.0f);
-void EndCreate();
+IMGUI_API bool BeginCreate(const ImVec4& color = ImVec4(1, 1, 1, 1), float thickness = 1.0f);
+IMGUI_API bool QueryNewLink(PinId* startId, PinId* endId);
+IMGUI_API bool QueryNewLink(PinId* startId, PinId* endId, const ImVec4& color, float thickness = 1.0f);
+IMGUI_API bool QueryNewNode(PinId* pinId);
+IMGUI_API bool QueryNewNode(PinId* pinId, const ImVec4& color, float thickness = 1.0f);
+IMGUI_API bool AcceptNewItem();
+IMGUI_API bool AcceptNewItem(const ImVec4& color, float thickness = 1.0f);
+IMGUI_API void RejectNewItem();
+IMGUI_API void RejectNewItem(const ImVec4& color, float thickness = 1.0f);
+IMGUI_API void EndCreate();
 
-bool BeginDelete();
-bool QueryDeletedLink(LinkId* linkId, PinId* startId = nullptr, PinId* endId = nullptr);
-bool QueryDeletedNode(NodeId* nodeId);
-bool AcceptDeletedItem();
-void RejectDeletedItem();
-void EndDelete();
+IMGUI_API bool BeginDelete();
+IMGUI_API bool QueryDeletedLink(LinkId* linkId, PinId* startId = nullptr, PinId* endId = nullptr);
+IMGUI_API bool QueryDeletedNode(NodeId* nodeId);
+IMGUI_API bool AcceptDeletedItem();
+IMGUI_API void RejectDeletedItem();
+IMGUI_API void EndDelete();
 
-void SetNodePosition(NodeId nodeId, const ImVec2& editorPosition);
-ImVec2 GetNodePosition(NodeId nodeId);
-ImVec2 GetNodeSize(NodeId nodeId);
-void CenterNodeOnScreen(NodeId nodeId);
+IMGUI_API void SetNodePosition(NodeId nodeId, const ImVec2& editorPosition);
+IMGUI_API ImVec2 GetNodePosition(NodeId nodeId);
+IMGUI_API ImVec2 GetNodeSize(NodeId nodeId);
+IMGUI_API void CenterNodeOnScreen(NodeId nodeId);
 
-void RestoreNodeState(NodeId nodeId);
+IMGUI_API void RestoreNodeState(NodeId nodeId);
 
-void Suspend();
-void Resume();
-bool IsSuspended();
+IMGUI_API void Suspend();
+IMGUI_API void Resume();
+IMGUI_API bool IsSuspended();
 
-bool IsActive();
+IMGUI_API bool IsActive();
 
-bool HasSelectionChanged();
-int  GetSelectedObjectCount();
-int  GetSelectedNodes(NodeId* nodes, int size);
-int  GetSelectedLinks(LinkId* links, int size);
-void ClearSelection();
-void SelectNode(NodeId nodeId, bool append = false);
-void SelectLink(LinkId linkId, bool append = false);
-void DeselectNode(NodeId nodeId);
-void DeselectLink(LinkId linkId);
+IMGUI_API bool HasSelectionChanged();
+IMGUI_API int  GetSelectedObjectCount();
+IMGUI_API int  GetSelectedNodes(NodeId* nodes, int size);
+IMGUI_API int  GetSelectedLinks(LinkId* links, int size);
+IMGUI_API void ClearSelection();
+IMGUI_API void SelectNode(NodeId nodeId, bool append = false);
+IMGUI_API void SelectLink(LinkId linkId, bool append = false);
+IMGUI_API void DeselectNode(NodeId nodeId);
+IMGUI_API void DeselectLink(LinkId linkId);
 
-bool DeleteNode(NodeId nodeId);
-bool DeleteLink(LinkId linkId);
+IMGUI_API bool DeleteNode(NodeId nodeId);
+IMGUI_API bool DeleteLink(LinkId linkId);
 
-void NavigateToContent(float duration = -1);
-void NavigateToSelection(bool zoomIn = false, float duration = -1);
+IMGUI_API void NavigateToContent(float duration = -1);
+IMGUI_API void NavigateToSelection(bool zoomIn = false, float duration = -1);
 
-bool ShowNodeContextMenu(NodeId* nodeId);
-bool ShowPinContextMenu(PinId* pinId);
-bool ShowLinkContextMenu(LinkId* linkId);
-bool ShowBackgroundContextMenu();
+IMGUI_API bool ShowNodeContextMenu(NodeId* nodeId);
+IMGUI_API bool ShowPinContextMenu(PinId* pinId);
+IMGUI_API bool ShowLinkContextMenu(LinkId* linkId);
+IMGUI_API bool ShowBackgroundContextMenu();
 
-void EnableShortcuts(bool enable);
-bool AreShortcutsEnabled();
+IMGUI_API void EnableShortcuts(bool enable);
+IMGUI_API bool AreShortcutsEnabled();
 
-bool BeginShortcut();
-bool AcceptCut();
-bool AcceptCopy();
-bool AcceptPaste();
-bool AcceptDuplicate();
-bool AcceptCreateNode();
-int  GetActionContextSize();
-int  GetActionContextNodes(NodeId* nodes, int size);
-int  GetActionContextLinks(LinkId* links, int size);
-void EndShortcut();
+IMGUI_API bool BeginShortcut();
+IMGUI_API bool AcceptCut();
+IMGUI_API bool AcceptCopy();
+IMGUI_API bool AcceptPaste();
+IMGUI_API bool AcceptDuplicate();
+IMGUI_API bool AcceptCreateNode();
+IMGUI_API int  GetActionContextSize();
+IMGUI_API int  GetActionContextNodes(NodeId* nodes, int size);
+IMGUI_API int  GetActionContextLinks(LinkId* links, int size);
+IMGUI_API void EndShortcut();
 
-float GetCurrentZoom();
+IMGUI_API float GetCurrentZoom();
 
-NodeId GetDoubleClickedNode();
-PinId GetDoubleClickedPin();
-LinkId GetDoubleClickedLink();
-bool IsBackgroundClicked();
-bool IsBackgroundDoubleClicked();
+IMGUI_API NodeId GetDoubleClickedNode();
+IMGUI_API PinId GetDoubleClickedPin();
+IMGUI_API LinkId GetDoubleClickedLink();
+IMGUI_API bool IsBackgroundClicked();
+IMGUI_API bool IsBackgroundDoubleClicked();
 
-bool PinHadAnyLinks(PinId pinId);
+IMGUI_API bool PinHadAnyLinks(PinId pinId);
 
-ImVec2 GetScreenSize();
-ImVec2 ScreenToCanvas(const ImVec2& pos);
-ImVec2 CanvasToScreen(const ImVec2& pos);
+IMGUI_API ImVec2 GetScreenSize();
+IMGUI_API ImVec2 ScreenToCanvas(const ImVec2& pos);
+IMGUI_API ImVec2 CanvasToScreen(const ImVec2& pos);
 
 
 
